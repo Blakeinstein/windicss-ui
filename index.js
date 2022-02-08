@@ -1,6 +1,6 @@
 const plugin = require('windicss/plugin')
 const defaultTheme = require('windicss/defaultTheme')
-const hexRgb = require('hex-rgb')
+const hexRgb = require('hex-rgb-fixed')
 const customFormsPlugin = require('windicss/plugin/forms')
 const typographyPlugin = require('windicss/plugin/typography')
 
@@ -514,10 +514,6 @@ module.exports = plugin.withOptions(
   function({ typography = true, customForms = true } = { typography: true, customForms: true }) {
     return function(pluginApi) {
       const { addUtilities, addVariant, theme, e, prefix, variants } = pluginApi
-
-      if (customForms) {
-        customFormsPlugin(pluginApi)
-      }
 
       if (typography) {
         typographyPlugin().handler(pluginApi)
